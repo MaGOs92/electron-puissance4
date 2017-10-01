@@ -1,0 +1,58 @@
+.jaune{
+  background-color: #F9DA2B;
+}
+
+.rouge{
+  background-color: #C3000A;
+}
+
+.vide {
+  background-color: white;
+}
+
+.inner-case {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+
+.case{
+  width: 75px;
+  height: 75px;
+  border: 3px solid #043DCB;  
+  background-color: #043DCB;
+}
+
+.selector > .case{
+  background-color: white;
+  border: none;  
+}
+
+.selector > .case:hover{
+  background-color: #C3000A;
+  border-radius: 50%;
+}
+
+.hidden {
+  display: none;
+}
+
+table {
+  margin: auto;
+  margin-top: 30px;
+}
+
+.pied {
+  margin-top: -2px;
+  width: 75px;
+  height: 30px;
+  border: 5px solid #043DCB;
+  background-color: #043DCB;
+  border-radius: 50% 50% 0 0;
+}
+
+.info {
+  display:flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
