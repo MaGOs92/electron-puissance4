@@ -1,0 +1,11 @@
+{
+  "name": "electron-puissance4",
+  "version": "1.0.0",
+  "description": "Jeu de puissance 4 réalisé avec Electron",
+  "main": "main.js",
+  "author": "Guillaume Fay",
+  "license": "ISC",
+  "dependencies": {
+    "electron-updater": "2.10.1"
+  }
+}

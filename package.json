@@ -2,10 +2,10 @@
   "name": "electron-puissance4",
   "version": "1.0.0",
   "description": "Jeu de puissance 4 réalisé avec Electron",
-  "main": "main.js",
+  "main": "electron/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "electron-builder"
+    "dist": "electron-builder --mac --win --x64"
   },
   "author": "Guillaume Fay",
   "license": "ISC",
@@ -19,7 +19,10 @@
     "productName": "Puissance 4",
     "mac": {
       "category": "public.app-category.games",
-      "icon": "client/img/icone.icns"
+      "icon": "assets/img/icone.icns"
+    },
+    "win": {
+      "icon": "assets/img/icone.ico"
     }
   }
 }
