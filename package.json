@@ -4,7 +4,8 @@
   "description": "Jeu de puissance 4 réalisé avec Electron",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "electron-builder"
   },
   "author": "Guillaume Fay",
   "license": "ISC",
@@ -12,5 +13,11 @@
   "devDependencies": {
     "electron": "^1.7.8",
     "electron-builder": "^19.33.0"
+  },
+  "build": {
+    "appId": "com.electron.puissance4",
+    "mac": {
+      "category": "public.app-category.games"
+    }
   }
 }
