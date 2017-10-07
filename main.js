@@ -1,13 +1,31 @@
-const {dialog, BrowserWindow, app, ipcMain} = require('electron')
+const {dialog, BrowserWindow, app, ipcMain, Tray} = require('electron')
 const Puissance4 = require('./puissance4');
 const minMaxWorker = require('child_process').fork('./minmax');
 
-let browserWindow, game;
+let browserWindow, tray, game;
 
 const createBrowserWindow = () => {
     browserWindow = new BrowserWindow();
     browserWindow.maximize();
     browserWindow.loadURL(`file://${__dirname}/client/index.html`);
+}
+
+const createTray = () => {
+    tray = new Tray('client/img/red.png');
+    tray.setToolTip('A vous de jouer.');
+}
+
+const updateTray = (event) => {
+    let image, tooltip;
+    if (event === 'humanMoved') {
+        image = 'client/img/yellow.png'
+        tooltip = 'A Electron de jouer';
+    } else {
+        image = 'client/img/red.png'
+        tooltip = 'A vous de jouer';
+    }
+    tray.setImage(image);
+    tray.setToolTip(tooltip);
 }
 
 const newGame = () => {
@@ -34,10 +52,12 @@ const emitGameUpdate = (event) => {
       gameOver: game.gameOver,
       board: game.board
     });
+    updateTray(event);
 }
 
 app.on('ready', () => {
     createBrowserWindow();
+    createTray();
 });
 
 app.on('window-all-closed', () => {
