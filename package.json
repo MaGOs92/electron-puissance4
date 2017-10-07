@@ -16,8 +16,10 @@
   },
   "build": {
     "appId": "com.electron.puissance4",
+    "productName": "Puissance 4",
     "mac": {
-      "category": "public.app-category.games"
+      "category": "public.app-category.games",
+      "icon": "client/img/icone.icns"
     }
   }
 }

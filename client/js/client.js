@@ -65,7 +65,7 @@ function displayTurn(turn){
     case 2:
       displayHumanTurnDiv.classList.add('hidden');
       displayIaTurnDiv.classList.remove('hidden');
-    break;
+      break;
     default:
       displayHumanTurnDiv.classList.add('hidden');
       displayIaTurnDiv.classList.add('hidden');
@@ -74,7 +74,7 @@ function displayTurn(turn){
 }
 
 function hideGameOver(){
-  var gameOverDiv = document.getElementById('gameover');
+  const gameOverDiv = document.getElementById('gameover');
   gameOverDiv.classList.add('hidden');
 }
 
@@ -116,11 +116,11 @@ ipcRenderer.on('humanMoved', (event, data) => {
 ipcRenderer.on('iaMoved', (event, data) => {
   console.log('Event : iaMoved');
   updateGrid(data.board);
+  humanCanPlay = true;
+  displayTurn(1); 
   if (data.gameOver !== 0){
     displayGameOver(data.gameOver);
   }
-  humanCanPlay = true;
-  displayTurn(1);  
 });
 
 newGame();

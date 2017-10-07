@@ -1,6 +1,6 @@
 const {dialog, BrowserWindow, app, ipcMain, Tray} = require('electron')
 const Puissance4 = require('./puissance4');
-const minMaxWorker = require('child_process').fork('./minmax');
+const minMaxWorker = require('child_process').fork(`${__dirname}/minmax`);
 
 let browserWindow, tray, game;
 
@@ -11,17 +11,17 @@ const createBrowserWindow = () => {
 }
 
 const createTray = () => {
-    tray = new Tray('client/img/red.png');
+    tray = new Tray(`${__dirname}/client/img/red.png`);
     tray.setToolTip('A vous de jouer.');
 }
 
 const updateTray = (event) => {
     let image, tooltip;
     if (event === 'humanMoved') {
-        image = 'client/img/yellow.png'
+        image = `${__dirname}/client/img/yellow.png`
         tooltip = 'A Electron de jouer';
     } else {
-        image = 'client/img/red.png'
+        image = `${__dirname}/client/img/red.png`
         tooltip = 'A vous de jouer';
     }
     tray.setImage(image);
